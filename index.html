@@ -49,7 +49,7 @@
   </nav>
 
   
-  <!-- Hero Section -->
+  <!-- gradient Section -->
   <section class="w-full h-[250px] flex flex-col justify-center items-center text-center 
                  bg-gradient-to-r from-[rgb(1,49,34)] via-[rgb(0,103,71)] to-[rgb(1,50,35)] text-white">
     
@@ -73,7 +73,7 @@
     <!-- Left side (Cards Grid) -->
     <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
-      <!-- Card 1 -->
+      <!--National Emergency (Card 1) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -95,7 +95,7 @@
         </div>
       </div>
 
-      <!-- Police Helpline -->
+      <!-- Police Helpline- (Card-2) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -117,7 +117,7 @@
         </div>
       </div>
 
-              <!-- Fire services -->
+              <!-- Fire services- (Card-3) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -139,7 +139,7 @@
         </div>
       </div>
 
-            <!-- Ambulance -->
+            <!-- Ambulance- (Card-4) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -161,7 +161,7 @@
         </div>
       </div>
 
-            <!-- Women -->
+            <!-- Women- (Card-5) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -183,7 +183,7 @@
         </div>
       </div>
 
-            <!-- Anti-Corruption Helpline -->
+            <!-- Anti-Corruption Helpline- (Card-6) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -205,7 +205,7 @@
         </div>
       </div>
 
-            <!-- Electricity Helpline -->
+            <!-- Electricity Helpline- (Card-7) -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -227,7 +227,7 @@
         </div>
       </div>
 
-            <!-- Brac  -->
+            <!-- Brac- (Card-8)  -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -249,7 +249,7 @@
         </div>
       </div>
 
-            <!-- Bangladesh Railway Helpline  -->
+            <!-- Bangladesh Railway Helpline- (Card-9)  -->
       <div class="card bg-white shadow-md p-4 rounded-xl">
         <div class="flex justify-between">
           <div class="flex items-center gap-3">
@@ -280,19 +280,19 @@
     <button id="clearHistoryBtn" class="h-10 w-20 btn btn-sm bg-green-600 text-white rounded-full">Clear</button>
   </div>
   
-  <!-- এখানে আর কোনো ডেমো ডেটা থাকবে না -->
+  <!-- no demo data only for user -->
   <div id="callHistory" class="space-y-3 text-sm">
-    <!-- Call বাটনে ক্লিক করলে ডেটা এখানে যুক্ত হবে -->
+    <!-- click Call button add information  -->
   </div>
 </div>
 
 
   
-   <!-- ✅ JS Script -->
+   <!--  JS Script -->
  
    <script>
     window.onload = function () {
-  // ❤️ হার্ট কাউন্টার
+  // Heart counter
   const heartCountEl = document.getElementById("heartCount");
   let heartCount = 0;
 
@@ -312,12 +312,12 @@
     });
   });
 
-  // 💰 কয়েন
+  //  Coin 
   const coinEl = document.querySelector(".coin-count");
   let coins = 100;
   coinEl.textContent = coins;
 
-  // 📞 কল বাটন
+  //  Call button
   const callButtons = document.querySelectorAll(".call-btn");
   const historyContainer = document.querySelector("#callHistory");
 
@@ -348,12 +348,12 @@
     });
   });
 
-  // 🗑️ হিস্টোরি ক্লিয়ার বাটন
+  // History clear button
   document.getElementById("clearHistoryBtn").addEventListener("click", () => {
     historyContainer.innerHTML = "";
   });
 
-  // ✅ Copy Button Logic
+  // Here copy button logic
   let copyCount = 2;
 const copyCountBtn = document.getElementById("copyCountCounter");
 
