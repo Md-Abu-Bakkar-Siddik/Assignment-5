@@ -1,0 +1,159 @@
+1.No Answer:Difference between....... getElementById, getElementsByClassName, querySelector, querySelectorAll
+ document.getElementById("id")
+
+getElementById: একটি element ফেরত দেয়, যেটার id মিলে যায়।
+
+সবসময় একটা element ফেরত দেবে (কারণ id ইউনিক হয়)।
+
+let title = document.getElementById("mainTitle");
+
+
+getElementsByClassName:  document.getElementsByClassName("className")
+
+HTMLCollection (array-like object) ফেরত দেয়।
+
+অনেক element একই class থাকতে পারে, তাই একাধিক আসবে।
+
+let cards = document.getElementsByClassName("card");
+
+
+querySelectorAll: querySelector: document.querySelector("selector")
+
+প্রথম যেটা CSS selector এর সাথে মিলে যায় শুধু সেটাই ফেরত দেয়।
+
+অনেকটা getElementById এর মতো, কিন্তু id, class, tag সব ধরনের CSS selector দিতে পারি।
+
+let firstCard = document.querySelector(".card");
+let logo = document.querySelector("#logo");
+
+ document.querySelectorAll("selector")
+
+সব element ফেরত দেয় যেগুলো CSS selector এর সাথে মিলে যায়।
+
+NodeList আকারে আসে (forEach ব্যবহার করা যায়)।
+
+let allCards = document.querySelectorAll(".card");
+
+
+
+ 2.No Answer:Create and insert a new element into the DOM: কিভাবে নতুন element তৈরি ও insert করবেন
+
+ধাপগুলো:
+
+document.createElement() দিয়ে element তৈরি করা
+
+textContent বা innerHTML দিয়ে ভেতরে কিছু যোগ করা
+
+appendChild() বা append() বা prepend() দিয়ে DOM এ বসানো
+
+let newDiv = document.createElement("div");
+newDiv.textContent = "Hello Siddik vai!";
+document.body.appendChild(newDiv);
+
+
+ এতে body এর শেষে একটা নতুন div যোগ হবে।
+
+
+
+ 3.No Answer: Event Bubbling :
+
+যখন কোনো event (যেমন click) ঘটে child element এ, তখন সেটা bubble হয়ে উপরের parent → grandparent → root পর্যন্ত যায়।
+
+মানে ভিতরের element থেকে event উপরের দিকে propagate করে।
+How does Event Bubbling work: 
+
+<div id="parent">
+  <button id="child">Click me</button>
+</div>
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child Clicked");
+});
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent Clicked");
+});
+
+
+ যদি child এ ক্লিক করি:
+Output:
+
+Child Clicked
+Parent Clicked
+
+
+কারণ event প্রথমে child এ, তারপর bubble হয়ে parent এ চলে গেছে।
+
+
+
+ 4.No Answer: Event Delegation in JavaScript:
+
+Event Delegation:
+Event delegation মানে হলো parent element এ event listener বসানো, তারপর event bubbling এর মাধ্যমে child element এর event হ্যান্ডল করা।
+
+Useful কারণ:
+
+অনেক child element এর জন্য আলাদা listener বসাতে হয় না।
+
+Future এ নতুন child element যোগ হলেও কাজ করবে।
+
+document.getElementById("parent").addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    console.log("Button clicked: " + e.target.textContent);
+  }
+});
+
+
+ এখানে শুধু parent এ listener দেওয়া হয়েছে। কিন্তু parent এর ভিতরে যত button আছে, সবার জন্য কাজ করবে।
+
+
+
+ 5.No Answer:difference between preventDefault() and stopPropagation() methods:
+ preventDefault() vs stopPropagation()
+ preventDefault()
+
+ডিফল্ট আচরণ থামায়।
+
+যেমন form submit করলে পেজ reload হয় → সেটা বন্ধ করতে ব্যবহার করি।
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("Form Submitted Without Reload");
+});
+
+ stopPropagation()
+
+Event bubbling বন্ধ করে দেয়।
+
+মানে event আর উপরে যাবে না।
+
+child.addEventListener("click", (e) => {
+  e.stopPropagation();
+  console.log("Child Clicked only");
+});
+
+
+ পার্থক্য:
+
+preventDefault() → element এর default কাজ বন্ধ করে।
+
+stopPropagation() → event এর bubbling (উপরে যাওয়া) বন্ধ করে।
+
+ সংক্ষেপে বাংলায়:
+
+getElementById = একটা id এর জন্য
+
+getElementsByClassName = class এর জন্য অনেক element
+
+querySelector = প্রথম element (CSS selector দিয়ে)
+
+querySelectorAll = সব element (NodeList আকারে)
+
+createElement + appendChild দিয়ে নতুন element যোগ করা যায়
+
+Event Bubbling = event child থেকে parent এ যায়
+
+Event Delegation = parent এ listener বসিয়ে child এর event handle করা
+
+preventDefault() = default কাজ বন্ধ
+
+stopPropagation() = event bubbling বন্ধ
